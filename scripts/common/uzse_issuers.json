@@ -1,0 +1,9 @@
+{
+ "_comment": "Тикер акции UzSE -> id эмитента в window.DIVIDENDS_DATA на https://uzse.uz/dividends. Привилегированные акции (суффикс P) берут дивиденд на привилегированную акцию того же эмитента. Сопоставлено вручную по названиям.",
+ "URTS": 1, "SQBN": 2, "SQBNP": 2, "AGBA": 3, "AGBAP": 3, "IPTB": 4, "IPTBP": 4, "HMKB": 5, "HMKBP": 5, "IPKY": 6,
+ "ALKB": 7, "ALKBP": 7, "TNBN": 8, "TNBNP": 8, "TRSB": 9, "TRSBP": 9, "UNVB": 10, "UZMK": 11, "UZMKP": 11,
+ "AGMK": 12, "AGMKP": 12, "KSCM": 13, "UZGF": 14, "UZGFP": 14, "UZAL": 15, "BIOK": 16, "QZSM": 17, "ALSM": 18, "ALSMP": 18,
+ "CBSK": 19, "KASU": 20, "KVTS": 21, "UZIR": 22, "UZIRP": 22, "UZTL": 23, "UZTLP": 23, "DORI": 25, "UPOS": 29,
+ "UZIN": 32, "UZINP": 32, "BRBN": 66, "BRBNP": 66, "KPBA": 67, "MCBA": 68, "MCBAP": 68, "GRBK": 70, "UZNG": 75, "UZNGP": 75,
+ "UZMT": 76, "UTGA": 91, "UTGAP": 91, "BNGP": 45
+}
