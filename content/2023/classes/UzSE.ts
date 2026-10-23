@@ -72,10 +72,11 @@ export class UzSEUtils {
       const response = await fetch(`${EXPORT_ENDPOINT}?${params}`, { headers: HEADERS });
       if (response.status === 429) {
         // Биржа пускает единицы выгрузок за полчаса и сама называет срок; ждём его и повторяем
+        // Окно на деле длиннее заявленного: при повторном 429 пауза удваивается
         const text = await response.text();
-        const minutes = Number(/(\d+)\s*minutes?/.exec(text)?.[1] ?? 30);
+        const minutes = Number(/(\d+)\s*minutes?/.exec(text)?.[1] ?? 30) * 2 ** attempt + 1;
         console.warn(`UzSE ${ticker}: export rate limited, waiting ${minutes} min (${attempt + 1}/${MAX_RATE_LIMIT_WAITS})`);
-        await sleep((minutes + 1) * 60_000);
+        await sleep(minutes * 60_000);
         continue;
       }
       if (!response.ok) {

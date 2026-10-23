@@ -1,21 +1,157 @@
 {
- "generatedAt": "2026-10-20T06:48:25.529Z",
+ "generatedAt": "2026-10-21T13:15:37.727Z",
  "rules": {
-  "MIN_MEDIAN_TURNOVER_UZS": 1000000,
-  "MIN_ACTIVE_SHARE": 0.9,
-  "MIN_TRADING_DAYS": 200,
+  "MIN_MEDIAN_TURNOVER_UZS": 0,
+  "MIN_ACTIVE_SHARE": 0.5,
+  "MIN_TRADING_DAYS": 150,
   "MIN_BASKET": 3,
-  "TOP": 10,
+  "TOP": 100,
   "SPLIT_UP": 1.8,
   "SPLIT_DOWN": 0.55
  },
  "years": {
+  "2020": {
+   "rankedBy": "2019",
+   "basket": [
+    "QZSM",
+    "KVTS",
+    "AGMKP",
+    "SQBN",
+    "HMKB",
+    "SQBNP",
+    "IPTB",
+    "IPTBP"
+   ],
+   "liquidity": [
+    {
+     "ticker": "QZSM",
+     "medianTurnover": 14557233,
+     "active": 0.99
+    },
+    {
+     "ticker": "KVTS",
+     "medianTurnover": 6844950,
+     "active": 0.99
+    },
+    {
+     "ticker": "AGMKP",
+     "medianTurnover": 1215250,
+     "active": 0.88
+    },
+    {
+     "ticker": "SQBN",
+     "medianTurnover": 230594,
+     "active": 0.94
+    },
+    {
+     "ticker": "HMKB",
+     "medianTurnover": 95000,
+     "active": 0.88
+    },
+    {
+     "ticker": "SQBNP",
+     "medianTurnover": 4200,
+     "active": 0.6
+    },
+    {
+     "ticker": "IPTB",
+     "medianTurnover": 2841,
+     "active": 0.8
+    },
+    {
+     "ticker": "IPTBP",
+     "medianTurnover": 309,
+     "active": 0.61
+    }
+   ],
+   "excluded": {
+    "AGBAP": "traded on 1% of days in 2019",
+    "AGBA": "traded on 21% of days in 2019",
+    "AGMK": "traded on 0% of days in 2019",
+    "ALKBP": "traded on 25% of days in 2019",
+    "ALKB": "traded on 25% of days in 2019",
+    "ALSMP": "traded on 0% of days in 2019",
+    "ALSM": "traded on 21% of days in 2019",
+    "BECMP": "only 0 trading days in 2019",
+    "BECM": "only 0 trading days in 2019",
+    "BIOK": "traded on 29% of days in 2019",
+    "BNGPP": "traded on 0% of days in 2019",
+    "BNGP": "traded on 11% of days in 2019",
+    "BRBNP": "traded on 12% of days in 2019",
+    "BRBN": "traded on 19% of days in 2019",
+    "CBSK": "traded on 48% of days in 2019",
+    "DORI": "only 0 trading days in 2019",
+    "DRBK": "traded on 2% of days in 2019",
+    "EQQU": "only 0 trading days in 2019",
+    "FRAZP": "only 0 trading days in 2019",
+    "FRAZ": "only 0 trading days in 2019",
+    "GRBKP": "traded on 0% of days in 2019",
+    "GRBK": "traded on 12% of days in 2019",
+    "HMKBP": "traded on 40% of days in 2019",
+    "INFB": "traded on 0% of days in 2019",
+    "IPKYP": "traded on 0% of days in 2019",
+    "IPKY": "traded on 3% of days in 2019",
+    "JASM": "traded on 8% of days in 2019",
+    "KASUP": "traded on 0% of days in 2019",
+    "KASU": "traded on 25% of days in 2019",
+    "KFSKP": "only 32 trading days in 2019",
+    "KFSK": "only 32 trading days in 2019",
+    "KPBA": "traded on 2% of days in 2019",
+    "KSCMP": "traded on 0% of days in 2019",
+    "KSCM": "traded on 26% of days in 2019",
+    "MCBAP": "traded on 6% of days in 2019",
+    "MCBA": "traded on 6% of days in 2019",
+    "METQ": "only 0 trading days in 2019",
+    "NGQS": "only 137 trading days in 2019",
+    "OALB": "traded on 0% of days in 2019",
+    "ORFI": "only 0 trading days in 2019",
+    "QATTP": "only 21 trading days in 2019",
+    "QATT": "only 21 trading days in 2019",
+    "TGMQ": "traded on 2% of days in 2019",
+    "TGPG": "only 76 trading days in 2019",
+    "TNBNP": "traded on 6% of days in 2019",
+    "TNBN": "traded on 11% of days in 2019",
+    "TRSBP": "traded on 0% of days in 2019",
+    "TRSB": "traded on 28% of days in 2019",
+    "UNVB": "traded on 13% of days in 2019",
+    "UPATP": "traded on 0% of days in 2019",
+    "UPAT": "traded on 0% of days in 2019",
+    "UQEQ": "traded on 4% of days in 2019",
+    "URTS": "split-like close jump inside 2020 (exchange series is not adjusted)",
+    "UTGAP": "traded on 17% of days in 2019",
+    "UTGA": "traded on 0% of days in 2019",
+    "UTYK": "traded on 2% of days in 2019",
+    "UVGT": "only 34 trading days in 2019",
+    "UZALP": "traded on 0% of days in 2019",
+    "UZAL": "traded on 7% of days in 2019",
+    "UZGFP": "traded on 33% of days in 2019",
+    "UZGF": "traded on 0% of days in 2019",
+    "UZIRP": "traded on 23% of days in 2019",
+    "UZIR": "traded on 48% of days in 2019",
+    "UZMKP": "traded on 34% of days in 2019",
+    "UZMK": "traded on 45% of days in 2019",
+    "UZML": "only 0 trading days in 2019",
+    "UZPN": "only 0 trading days in 2019",
+    "UZTLP": "traded on 20% of days in 2019",
+    "UZTL": "traded on 0% of days in 2019",
+    "YRFS": "only 101 trading days in 2019"
+   }
+  },
   "2021": {
    "rankedBy": "2020",
    "basket": [
     "UZMK",
     "KVTS",
-    "QZSM"
+    "QZSM",
+    "URTS",
+    "AGMKP",
+    "HMKB",
+    "SQBN",
+    "UZMKP",
+    "IPTB",
+    "AGBA",
+    "SQBNP",
+    "IPTBP"
    ],
    "liquidity": [
     {
@@ -32,27 +168,122 @@
      "ticker": "QZSM",
      "medianTurnover": 5105871,
      "active": 0.98
+    },
+    {
+     "ticker": "URTS",
+     "medianTurnover": 2452060,
+     "active": 0.87
+    },
+    {
+     "ticker": "AGMKP",
+     "medianTurnover": 297693,
+     "active": 0.85
+    },
+    {
+     "ticker": "HMKB",
+     "medianTurnover": 277894,
+     "active": 0.98
+    },
+    {
+     "ticker": "SQBN",
+     "medianTurnover": 74390,
+     "active": 0.93
+    },
+    {
+     "ticker": "UZMKP",
+     "medianTurnover": 60000,
+     "active": 0.63
+    },
+    {
+     "ticker": "IPTB",
+     "medianTurnover": 9472,
+     "active": 0.87
+    },
+    {
+     "ticker": "AGBA",
+     "medianTurnover": 845,
+     "active": 0.54
+    },
+    {
+     "ticker": "SQBNP",
+     "medianTurnover": 287,
+     "active": 0.55
+    },
+    {
+     "ticker": "IPTBP",
+     "medianTurnover": 19,
+     "active": 0.56
     }
    ],
    "excluded": {
+    "AGBAP": "traded on 0% of days in 2020",
+    "AGMK": "traded on 0% of days in 2020",
+    "ALKBP": "traded on 5% of days in 2020",
+    "ALKB": "traded on 32% of days in 2020",
+    "ALSMP": "traded on 0% of days in 2020",
+    "ALSM": "traded on 29% of days in 2020",
     "BECMP": "only 0 trading days in 2020",
     "BECM": "only 0 trading days in 2020",
+    "BIOK": "traded on 11% of days in 2020",
+    "BNGPP": "traded on 0% of days in 2020",
+    "BNGP": "traded on 5% of days in 2020",
+    "BRBNP": "traded on 5% of days in 2020",
+    "BRBN": "traded on 12% of days in 2020",
+    "CBSK": "traded on 32% of days in 2020",
     "DORI": "only 141 trading days in 2020",
+    "DRBK": "traded on 0% of days in 2020",
     "EQQU": "only 138 trading days in 2020",
     "FRAZP": "only 0 trading days in 2020",
     "FRAZ": "only 0 trading days in 2020",
+    "GRBKP": "traded on 0% of days in 2020",
+    "GRBK": "traded on 16% of days in 2020",
+    "HMKBP": "split-like close jump inside 2021 (exchange series is not adjusted)",
+    "INFBP": "traded on 0% of days in 2020",
+    "INFB": "traded on 2% of days in 2020",
+    "IPKYP": "traded on 0% of days in 2020",
+    "IPKY": "traded on 1% of days in 2020",
+    "JASM": "traded on 4% of days in 2020",
+    "KASUP": "traded on 0% of days in 2020",
+    "KASU": "traded on 47% of days in 2020",
+    "KFSKP": "traded on 0% of days in 2020",
+    "KFSK": "traded on 25% of days in 2020",
+    "KPBA": "traded on 1% of days in 2020",
+    "KSCMP": "traded on 0% of days in 2020",
+    "KSCM": "traded on 39% of days in 2020",
+    "MCBAP": "traded on 3% of days in 2020",
+    "MCBA": "traded on 10% of days in 2020",
     "METQ": "only 136 trading days in 2020",
+    "NGQS": "traded on 0% of days in 2020",
+    "OALB": "traded on 0% of days in 2020",
     "ORFI": "only 0 trading days in 2020",
     "QATTP": "only 80 trading days in 2020",
     "QATT": "only 80 trading days in 2020",
     "TGMQ": "only 25 trading days in 2020",
     "TGPG": "only 0 trading days in 2020",
-    "UPATP": "only 190 trading days in 2020",
-    "UPAT": "only 190 trading days in 2020",
-    "URTS": "traded on 87% of days in 2020",
+    "TNBNP": "traded on 3% of days in 2020",
+    "TNBN": "traded on 15% of days in 2020",
+    "TRSBP": "traded on 0% of days in 2020",
+    "TRSB": "traded on 25% of days in 2020",
+    "UNVB": "traded on 6% of days in 2020",
+    "UPATP": "traded on 0% of days in 2020",
+    "UPAT": "traded on 0% of days in 2020",
+    "UQEQ": "traded on 4% of days in 2020",
+    "URGKP": "traded on 0% of days in 2020",
+    "URGK": "traded on 0% of days in 2020",
+    "UTGAP": "traded on 5% of days in 2020",
+    "UTGA": "traded on 0% of days in 2020",
+    "UTYK": "traded on 1% of days in 2020",
     "UVGT": "only 0 trading days in 2020",
+    "UZALP": "traded on 0% of days in 2020",
+    "UZAL": "traded on 1% of days in 2020",
+    "UZGFP": "traded on 20% of days in 2020",
+    "UZGF": "traded on 0% of days in 2020",
+    "UZIRP": "traded on 11% of days in 2020",
+    "UZIR": "traded on 13% of days in 2020",
     "UZML": "only 0 trading days in 2020",
     "UZPN": "only 148 trading days in 2020",
+    "UZTLP": "traded on 43% of days in 2020",
+    "UZTL": "traded on 0% of days in 2020",
     "YRFS": "only 0 trading days in 2020"
    }
   },
@@ -61,8 +292,14 @@
    "basket": [
     "URTS",
     "QZSM",
+    "KSCM",
     "KVTS",
-    "HMKB"
+    "HMKB",
+    "SQBN",
+    "IPTB",
+    "AGMKP",
+    "CBSK",
+    "IPTBP"
    ],
    "liquidity": [
     {
@@ -76,6 +313,11 @@
      "active": 1
     },
     {
+     "ticker": "KSCM",
+     "medianTurnover": 18650000,
+     "active": 0.83
+    },
+    {
      "ticker": "KVTS",
      "medianTurnover": 15645723,
      "active": 1
@@ -84,23 +326,104 @@
      "ticker": "HMKB",
      "medianTurnover": 2118103,
      "active": 1
+    },
+    {
+     "ticker": "SQBN",
+     "medianTurnover": 598156,
+     "active": 1
+    },
+    {
+     "ticker": "IPTB",
+     "medianTurnover": 239884,
+     "active": 0.98
+    },
+    {
+     "ticker": "AGMKP",
+     "medianTurnover": 187500,
+     "active": 0.7
+    },
+    {
+     "ticker": "CBSK",
+     "medianTurnover": 4840,
+     "active": 0.65
+    },
+    {
+     "ticker": "IPTBP",
+     "medianTurnover": 4774,
+     "active": 0.72
     }
    ],
    "excluded": {
+    "AGBAP": "traded on 1% of days in 2021",
+    "AGBA": "split-like close jump inside 2022 (exchange series is not adjusted)",
+    "AGMK": "traded on 0% of days in 2021",
+    "ALKBP": "traded on 17% of days in 2021",
+    "ALKB": "split-like close jump inside 2022 (exchange series is not adjusted)",
+    "ALSMP": "traded on 0% of days in 2021",
+    "ALSM": "traded on 26% of days in 2021",
     "BECMP": "only 0 trading days in 2021",
     "BECM": "only 0 trading days in 2021",
+    "BIOK": "traded on 13% of days in 2021",
+    "BNGPP": "traded on 0% of days in 2021",
+    "BNGP": "traded on 5% of days in 2021",
+    "BRBNP": "traded on 5% of days in 2021",
+    "BRBN": "traded on 26% of days in 2021",
+    "DORI": "traded on 48% of days in 2021",
     "DRBK": "only 34 trading days in 2021",
+    "EQQU": "traded on 0% of days in 2021",
     "FRAZP": "only 0 trading days in 2021",
     "FRAZ": "only 0 trading days in 2021",
+    "GRBKP": "traded on 0% of days in 2021",
+    "GRBK": "traded on 30% of days in 2021",
+    "HMKBP": "split-like close jump inside 2022 (exchange series is not adjusted)",
     "INFBP": "only 0 trading days in 2021",
     "INFB": "only 34 trading days in 2021",
-    "KSCM": "traded on 83% of days in 2021",
+    "IPKYP": "traded on 0% of days in 2021",
+    "IPKY": "traded on 44% of days in 2021",
+    "JASM": "traded on 17% of days in 2021",
+    "KASUP": "traded on 0% of days in 2021",
+    "KASU": "traded on 44% of days in 2021",
+    "KFSKP": "traded on 0% of days in 2021",
+    "KFSK": "traded on 42% of days in 2021",
+    "KPBA": "traded on 1% of days in 2021",
+    "KSCMP": "traded on 3% of days in 2021",
+    "MCBAP": "traded on 12% of days in 2021",
+    "MCBA": "traded on 11% of days in 2021",
+    "METQ": "traded on 0% of days in 2021",
+    "NGQS": "traded on 0% of days in 2021",
     "OALB": "only 34 trading days in 2021",
     "ORFI": "only 140 trading days in 2021",
+    "QATTP": "traded on 0% of days in 2021",
+    "QATT": "traded on 16% of days in 2021",
+    "SQBNP": "split-like close jump inside 2022 (exchange series is not adjusted)",
     "TGMQ": "only 0 trading days in 2021",
     "TGPG": "only 0 trading days in 2021",
+    "TNBNP": "traded on 6% of days in 2021",
+    "TNBN": "traded on 12% of days in 2021",
+    "TRSBP": "traded on 0% of days in 2021",
+    "TRSB": "traded on 37% of days in 2021",
+    "UNVB": "traded on 18% of days in 2021",
+    "UPATP": "traded on 0% of days in 2021",
+    "UPAT": "traded on 1% of days in 2021",
+    "UQEQ": "traded on 18% of days in 2021",
+    "URGKP": "traded on 0% of days in 2021",
+    "URGK": "traded on 0% of days in 2021",
+    "UTGAP": "traded on 20% of days in 2021",
+    "UTGA": "traded on 0% of days in 2021",
+    "UTYK": "traded on 1% of days in 2021",
     "UVGT": "only 0 trading days in 2021",
+    "UZALP": "traded on 0% of days in 2021",
+    "UZAL": "traded on 5% of days in 2021",
+    "UZGFP": "traded on 44% of days in 2021",
+    "UZGF": "traded on 0% of days in 2021",
+    "UZIRP": "traded on 14% of days in 2021",
+    "UZIR": "traded on 15% of days in 2021",
+    "UZMKP": "split-like close jump inside 2022 (exchange series is not adjusted)",
     "UZMK": "split-like close jump inside 2022 (exchange series is not adjusted)",
+    "UZML": "traded on 4% of days in 2021",
+    "UZPN": "traded on 0% of days in 2021",
+    "UZTLP": "traded on 44% of days in 2021",
+    "UZTL": "traded on 0% of days in 2021",
     "YRFS": "only 0 trading days in 2021"
    }
   },
@@ -111,7 +434,18 @@
     "URTS",
     "QZSM",
     "KVTS",
-    "AGMKP"
+    "KSCM",
+    "AGMKP",
+    "UZMKP",
+    "DORI",
+    "IPTB",
+    "SQBN",
+    "IPTBP",
+    "CBSK",
+    "TRSB",
+    "AGBA",
+    "SQBNP",
+    "ALKB"
    ],
    "liquidity": [
     {
@@ -135,29 +469,132 @@
      "active": 1
     },
     {
+     "ticker": "KSCM",
+     "medianTurnover": 2385405,
+     "active": 0.74
+    },
+    {
      "ticker": "AGMKP",
      "medianTurnover": 1908613,
      "active": 0.91
+    },
+    {
+     "ticker": "UZMKP",
+     "medianTurnover": 995600,
+     "active": 0.91
+    },
+    {
+     "ticker": "DORI",
+     "medianTurnover": 598000,
+     "active": 0.77
+    },
+    {
+     "ticker": "IPTB",
+     "medianTurnover": 367327,
+     "active": 1
+    },
+    {
+     "ticker": "SQBN",
+     "medianTurnover": 291851,
+     "active": 1
+    },
+    {
+     "ticker": "IPTBP",
+     "medianTurnover": 48873,
+     "active": 0.86
+    },
+    {
+     "ticker": "CBSK",
+     "medianTurnover": 34289,
+     "active": 0.91
+    },
+    {
+     "ticker": "TRSB",
+     "medianTurnover": 29498,
+     "active": 0.59
+    },
+    {
+     "ticker": "AGBA",
+     "medianTurnover": 10984,
+     "active": 0.72
+    },
+    {
+     "ticker": "SQBNP",
+     "medianTurnover": 4186,
+     "active": 0.71
+    },
+    {
+     "ticker": "ALKB",
+     "medianTurnover": 880,
+     "active": 0.68
     }
    ],
    "excluded": {
+    "AGBAP": "traded on 4% of days in 2022",
+    "AGMK": "traded on 0% of days in 2022",
+    "ALKBP": "traded on 19% of days in 2022",
+    "ALSMP": "traded on 0% of days in 2022",
+    "ALSM": "traded on 30% of days in 2022",
     "BECMP": "only 100 trading days in 2022",
     "BECM": "only 103 trading days in 2022",
+    "BIOK": "traded on 18% of days in 2022",
     "BNGPP": "only 73 trading days in 2022",
     "BNGP": "only 73 trading days in 2022",
+    "BRBNP": "traded on 1% of days in 2022",
+    "BRBN": "traded on 27% of days in 2022",
     "DRBK": "only 0 trading days in 2022",
     "EQQU": "only 73 trading days in 2022",
     "FRAZP": "only 0 trading days in 2022",
     "FRAZ": "only 0 trading days in 2022",
+    "GRBKP": "traded on 0% of days in 2022",
+    "GRBK": "traded on 34% of days in 2022",
+    "HMKBP": "split-like close jump inside 2023 (exchange series is not adjusted)",
+    "HMKB": "split-like close jump inside 2023 (exchange series is not adjusted)",
     "INFBP": "only 0 trading days in 2022",
     "INFB": "only 0 trading days in 2022",
+    "IPKYP": "traded on 0% of days in 2022",
+    "IPKY": "split-like close jump inside 2023 (exchange series is not adjusted)",
     "JASM": "only 92 trading days in 2022",
-    "KSCM": "traded on 74% of days in 2022",
+    "KASUP": "traded on 0% of days in 2022",
+    "KASU": "split-like close jump inside 2023 (exchange series is not adjusted)",
+    "KFSKP": "traded on 0% of days in 2022",
+    "KFSK": "traded on 50% of days in 2022",
+    "KPBA": "traded on 0% of days in 2022",
+    "KSCMP": "traded on 1% of days in 2022",
+    "MCBAP": "traded on 7% of days in 2022",
+    "MCBA": "traded on 15% of days in 2022",
+    "METQ": "traded on 2% of days in 2022",
+    "NGQS": "traded on 0% of days in 2022",
     "OALB": "only 0 trading days in 2022",
+    "ORFIP": "traded on 1% of days in 2022",
+    "ORFI": "traded on 0% of days in 2022",
+    "QATTP": "traded on 0% of days in 2022",
+    "QATT": "traded on 16% of days in 2022",
     "TGMQ": "only 0 trading days in 2022",
     "TGPG": "only 0 trading days in 2022",
+    "TNBNP": "traded on 15% of days in 2022",
+    "TNBN": "traded on 41% of days in 2022",
+    "TRSBP": "traded on 0% of days in 2022",
+    "UNVB": "traded on 20% of days in 2022",
+    "UPATP": "traded on 0% of days in 2022",
+    "UPAT": "traded on 1% of days in 2022",
+    "UQEQ": "traded on 20% of days in 2022",
+    "URGKP": "traded on 0% of days in 2022",
+    "URGK": "traded on 0% of days in 2022",
+    "UTGAP": "traded on 23% of days in 2022",
+    "UTGA": "traded on 4% of days in 2022",
     "UTYK": "only 80 trading days in 2022",
     "UVGT": "only 0 trading days in 2022",
+    "UZALP": "traded on 0% of days in 2022",
+    "UZAL": "traded on 7% of days in 2022",
+    "UZGFP": "traded on 46% of days in 2022",
+    "UZGF": "traded on 0% of days in 2022",
+    "UZIRP": "traded on 23% of days in 2022",
+    "UZIR": "traded on 18% of days in 2022",
+    "UZML": "traded on 2% of days in 2022",
+    "UZPN": "traded on 0% of days in 2022",
+    "UZTLP": "traded on 44% of days in 2022",
+    "UZTL": "traded on 0% of days in 2022",
     "YRFS": "only 0 trading days in 2022"
    }
   },
@@ -165,16 +602,49 @@
    "rankedBy": "2023",
    "basket": [
     "UZMK",
+    "UZMT",
     "QZSM",
     "KVTS",
     "UZMKP",
-    "AGMKP"
+    "AGMKP",
+    "DORI",
+    "IPTB",
+    "UZNGP",
+    "IPKY",
+    "UZTLP",
+    "SQBN",
+    "IPTBP",
+    "CBSK",
+    "KSCM",
+    "BRBNP",
+    "TNBN",
+    "AGBA",
+    "UTGAP",
+    "TRSB",
+    "UZIRP",
+    "SQBNP",
+    "GRBK",
+    "BRBN",
+    "BIOK",
+    "UZIR",
+    "ALSM",
+    "MCBA",
+    "UZGFP",
+    "MCBAP",
+    "TNBNP",
+    "AGBAP",
+    "UZAL"
    ],
    "liquidity": [
     {
      "ticker": "UZMK",
      "medianTurnover": 43395709,
      "active": 1
+    },
+    {
+     "ticker": "UZMT",
+     "medianTurnover": 5624740,
+     "active": 0.85
     },
     {
      "ticker": "QZSM",
@@ -195,23 +665,200 @@
      "ticker": "AGMKP",
      "medianTurnover": 1173370,
      "active": 1
+    },
+    {
+     "ticker": "DORI",
+     "medianTurnover": 859453,
+     "active": 1
+    },
+    {
+     "ticker": "IPTB",
+     "medianTurnover": 485685,
+     "active": 1
+    },
+    {
+     "ticker": "UZNGP",
+     "medianTurnover": 475503,
+     "active": 0.95
+    },
+    {
+     "ticker": "IPKY",
+     "medianTurnover": 468667,
+     "active": 0.99
+    },
+    {
+     "ticker": "UZTLP",
+     "medianTurnover": 414666,
+     "active": 0.91
+    },
+    {
+     "ticker": "SQBN",
+     "medianTurnover": 390603,
+     "active": 1
+    },
+    {
+     "ticker": "IPTBP",
+     "medianTurnover": 364113,
+     "active": 1
+    },
+    {
+     "ticker": "CBSK",
+     "medianTurnover": 354618,
+     "active": 1
+    },
+    {
+     "ticker": "KSCM",
+     "medianTurnover": 246000,
+     "active": 0.6
+    },
+    {
+     "ticker": "BRBNP",
+     "medianTurnover": 213589,
+     "active": 0.69
+    },
+    {
+     "ticker": "TNBN",
+     "medianTurnover": 163856,
+     "active": 0.99
+    },
+    {
+     "ticker": "AGBA",
+     "medianTurnover": 158682,
+     "active": 1
+    },
+    {
+     "ticker": "UTGAP",
+     "medianTurnover": 157776,
+     "active": 0.9
+    },
+    {
+     "ticker": "TRSB",
+     "medianTurnover": 151109,
+     "active": 0.79
+    },
+    {
+     "ticker": "UZIRP",
+     "medianTurnover": 150641,
+     "active": 0.94
+    },
+    {
+     "ticker": "SQBNP",
+     "medianTurnover": 142844,
+     "active": 1
+    },
+    {
+     "ticker": "GRBK",
+     "medianTurnover": 119379,
+     "active": 1
+    },
+    {
+     "ticker": "BRBN",
+     "medianTurnover": 118450,
+     "active": 0.96
+    },
+    {
+     "ticker": "BIOK",
+     "medianTurnover": 74100,
+     "active": 0.67
+    },
+    {
+     "ticker": "UZIR",
+     "medianTurnover": 73505,
+     "active": 0.74
+    },
+    {
+     "ticker": "ALSM",
+     "medianTurnover": 65425,
+     "active": 0.93
+    },
+    {
+     "ticker": "MCBA",
+     "medianTurnover": 54731,
+     "active": 0.98
+    },
+    {
+     "ticker": "UZGFP",
+     "medianTurnover": 53877,
+     "active": 0.93
+    },
+    {
+     "ticker": "MCBAP",
+     "medianTurnover": 46550,
+     "active": 0.78
+    },
+    {
+     "ticker": "TNBNP",
+     "medianTurnover": 23722,
+     "active": 0.75
+    },
+    {
+     "ticker": "AGBAP",
+     "medianTurnover": 12000,
+     "active": 0.51
+    },
+    {
+     "ticker": "UZAL",
+     "medianTurnover": 2535,
+     "active": 0.59
     }
    ],
    "excluded": {
+    "AGMK": "traded on 0% of days in 2023",
+    "ALKBP": "split-like close jump inside 2024 (exchange series is not adjusted)",
+    "ALKB": "split-like close jump inside 2024 (exchange series is not adjusted)",
+    "ALSMP": "traded on 0% of days in 2023",
+    "BECMP": "traded on 1% of days in 2023",
+    "BECM": "no issuer id in uzse_issuers.json (dividends unknown)",
     "BNGPP": "only 59 trading days in 2023",
     "BNGP": "only 59 trading days in 2023",
     "DRBK": "only 0 trading days in 2023",
+    "EQQU": "traded on 28% of days in 2023",
     "FRAZP": "only 98 trading days in 2023",
     "FRAZ": "only 99 trading days in 2023",
+    "GRBKP": "traded on 0% of days in 2023",
+    "HMKBP": "split-like close jump inside 2024 (exchange series is not adjusted)",
     "HMKB": "split-like close jump inside 2024 (exchange series is not adjusted)",
     "INFBP": "only 0 trading days in 2023",
     "INFB": "only 0 trading days in 2023",
+    "IPKYP": "traded on 0% of days in 2023",
+    "JASM": "traded on 4% of days in 2023",
+    "KASUP": "traded on 0% of days in 2023",
+    "KASU": "split-like close jump inside 2024 (exchange series is not adjusted)",
+    "KFSKP": "traded on 9% of days in 2023",
+    "KFSK": "no issuer id in uzse_issuers.json (dividends unknown)",
+    "KPBA": "traded on 0% of days in 2023",
+    "KSCMP": "traded on 0% of days in 2023",
+    "METQ": "traded on 1% of days in 2023",
+    "NGQS": "traded on 0% of days in 2023",
     "OALB": "only 0 trading days in 2023",
+    "OHDN": "traded on 38% of days in 2023",
+    "ORFIP": "traded on 0% of days in 2023",
+    "ORFI": "traded on 0% of days in 2023",
+    "QATTP": "traded on 0% of days in 2023",
+    "QATT": "no issuer id in uzse_issuers.json (dividends unknown)",
+    "SOLA": "traded on 0% of days in 2023",
     "TGMQ": "only 0 trading days in 2023",
     "TGPG": "only 0 trading days in 2023",
+    "TMYS": "traded on 0% of days in 2023",
+    "TRSBP": "traded on 15% of days in 2023",
+    "UNVB": "traded on 36% of days in 2023",
+    "UPATP": "traded on 0% of days in 2023",
+    "UPAT": "traded on 1% of days in 2023",
+    "UPOSP": "traded on 0% of days in 2023",
+    "UPOS": "traded on 7% of days in 2023",
+    "UQEQ": "traded on 40% of days in 2023",
+    "URGKP": "traded on 0% of days in 2023",
+    "URGK": "traded on 0% of days in 2023",
     "URTS": "split-like close jump inside 2024 (exchange series is not adjusted)",
+    "UTGA": "traded on 42% of days in 2023",
+    "UTYK": "traded on 14% of days in 2023",
     "UVGT": "only 0 trading days in 2023",
-    "UZMT": "traded on 85% of days in 2023",
+    "UZALP": "traded on 0% of days in 2023",
+    "UZGF": "traded on 0% of days in 2023",
+    "UZML": "traded on 0% of days in 2023",
+    "UZNG": "traded on 0% of days in 2023",
+    "UZPN": "traded on 7% of days in 2023",
+    "UZTL": "traded on 3% of days in 2023",
     "YRFS": "only 0 trading days in 2023"
    }
   },
@@ -226,7 +873,40 @@
     "UZMT",
     "IPKY",
     "KVTS",
-    "UZINP"
+    "UZINP",
+    "IPTB",
+    "CBSK",
+    "UZTLP",
+    "AGMKP",
+    "HMKBP",
+    "TNBN",
+    "UZNGP",
+    "TRSB",
+    "IPTBP",
+    "BIOK",
+    "UZMKP",
+    "SQBN",
+    "DORI",
+    "BNGP",
+    "SQBNP",
+    "ALKBP",
+    "ALKB",
+    "BRBNP",
+    "AGBA",
+    "AGBAP",
+    "KSCM",
+    "BRBN",
+    "UZIR",
+    "UTGAP",
+    "GRBK",
+    "UNVB",
+    "UZGFP",
+    "MCBA",
+    "TNBNP",
+    "UZIRP",
+    "ALSM",
+    "MCBAP",
+    "UZAL"
    ],
    "liquidity": [
     {
@@ -273,19 +953,226 @@
      "ticker": "UZINP",
      "medianTurnover": 1042308,
      "active": 1
+    },
+    {
+     "ticker": "IPTB",
+     "medianTurnover": 959979,
+     "active": 1
+    },
+    {
+     "ticker": "CBSK",
+     "medianTurnover": 915672,
+     "active": 1
+    },
+    {
+     "ticker": "UZTLP",
+     "medianTurnover": 905154,
+     "active": 1
+    },
+    {
+     "ticker": "AGMKP",
+     "medianTurnover": 733875,
+     "active": 0.98
+    },
+    {
+     "ticker": "HMKBP",
+     "medianTurnover": 504781,
+     "active": 0.98
+    },
+    {
+     "ticker": "TNBN",
+     "medianTurnover": 407547,
+     "active": 1
+    },
+    {
+     "ticker": "UZNGP",
+     "medianTurnover": 313966,
+     "active": 0.99
+    },
+    {
+     "ticker": "TRSB",
+     "medianTurnover": 310000,
+     "active": 0.94
+    },
+    {
+     "ticker": "IPTBP",
+     "medianTurnover": 291934,
+     "active": 1
+    },
+    {
+     "ticker": "BIOK",
+     "medianTurnover": 290000,
+     "active": 0.77
+    },
+    {
+     "ticker": "UZMKP",
+     "medianTurnover": 287952,
+     "active": 0.98
+    },
+    {
+     "ticker": "SQBN",
+     "medianTurnover": 268278,
+     "active": 1
+    },
+    {
+     "ticker": "DORI",
+     "medianTurnover": 253993,
+     "active": 0.95
+    },
+    {
+     "ticker": "BNGP",
+     "medianTurnover": 186701,
+     "active": 0.95
+    },
+    {
+     "ticker": "SQBNP",
+     "medianTurnover": 165473,
+     "active": 0.99
+    },
+    {
+     "ticker": "ALKBP",
+     "medianTurnover": 162703,
+     "active": 0.7
+    },
+    {
+     "ticker": "ALKB",
+     "medianTurnover": 150758,
+     "active": 0.7
+    },
+    {
+     "ticker": "BRBNP",
+     "medianTurnover": 136266,
+     "active": 0.98
+    },
+    {
+     "ticker": "AGBA",
+     "medianTurnover": 104218,
+     "active": 1
+    },
+    {
+     "ticker": "AGBAP",
+     "medianTurnover": 80001,
+     "active": 0.78
+    },
+    {
+     "ticker": "KSCM",
+     "medianTurnover": 80000,
+     "active": 0.54
+    },
+    {
+     "ticker": "BRBN",
+     "medianTurnover": 78925,
+     "active": 0.98
+    },
+    {
+     "ticker": "UZIR",
+     "medianTurnover": 57000,
+     "active": 0.68
+    },
+    {
+     "ticker": "UTGAP",
+     "medianTurnover": 46016,
+     "active": 0.8
+    },
+    {
+     "ticker": "GRBK",
+     "medianTurnover": 44837,
+     "active": 0.95
+    },
+    {
+     "ticker": "UNVB",
+     "medianTurnover": 44600,
+     "active": 0.75
+    },
+    {
+     "ticker": "UZGFP",
+     "medianTurnover": 39217,
+     "active": 0.93
+    },
+    {
+     "ticker": "MCBA",
+     "medianTurnover": 25440,
+     "active": 0.91
+    },
+    {
+     "ticker": "TNBNP",
+     "medianTurnover": 19083,
+     "active": 0.8
+    },
+    {
+     "ticker": "UZIRP",
+     "medianTurnover": 12304,
+     "active": 0.65
+    },
+    {
+     "ticker": "ALSM",
+     "medianTurnover": 9000,
+     "active": 0.74
+    },
+    {
+     "ticker": "MCBAP",
+     "medianTurnover": 5520,
+     "active": 0.55
+    },
+    {
+     "ticker": "UZAL",
+     "medianTurnover": 4222,
+     "active": 0.63
     }
    ],
    "excluded": {
+    "AGMK": "traded on 0% of days in 2024",
+    "ALSMP": "traded on 0% of days in 2024",
+    "BECMP": "traded on 40% of days in 2024",
+    "BECM": "no issuer id in uzse_issuers.json (dividends unknown)",
+    "BNGPP": "traded on 23% of days in 2024",
     "DRBK": "only 0 trading days in 2024",
+    "EQQU": "traded on 13% of days in 2024",
+    "FRAZP": "traded on 6% of days in 2024",
+    "FRAZ": "traded on 0% of days in 2024",
+    "GRBKP": "traded on 0% of days in 2024",
     "INFBP": "only 0 trading days in 2024",
     "INFB": "only 0 trading days in 2024",
+    "INSN": "traded on 0% of days in 2024",
+    "IPKYP": "traded on 0% of days in 2024",
+    "JASM": "traded on 1% of days in 2024",
+    "KASUP": "traded on 0% of days in 2024",
+    "KASU": "split-like close jump inside 2025 (exchange series is not adjusted)",
     "KFSKP": "only 63 trading days in 2024",
     "KFSK": "only 63 trading days in 2024",
+    "KPBA": "traded on 1% of days in 2024",
+    "KSCMP": "traded on 3% of days in 2024",
+    "METQ": "traded on 0% of days in 2024",
     "NGQS": "only 26 trading days in 2024",
     "OALB": "only 0 trading days in 2024",
+    "OHDN": "no issuer id in uzse_issuers.json (dividends unknown)",
+    "ORFIP": "traded on 0% of days in 2024",
+    "ORFI": "traded on 0% of days in 2024",
+    "ORGS": "traded on 0% of days in 2024",
+    "QATTP": "traded on 0% of days in 2024",
+    "QATT": "no issuer id in uzse_issuers.json (dividends unknown)",
+    "SOLA": "traded on 0% of days in 2024",
     "TGMQ": "only 0 trading days in 2024",
     "TGPG": "only 89 trading days in 2024",
+    "TMYS": "traded on 15% of days in 2024",
+    "TRSBP": "traded on 3% of days in 2024",
+    "UPATP": "traded on 0% of days in 2024",
+    "UPAT": "traded on 2% of days in 2024",
+    "UPOSP": "traded on 14% of days in 2024",
+    "UPOS": "traded on 35% of days in 2024",
+    "UQEQ": "traded on 19% of days in 2024",
+    "URGKP": "traded on 0% of days in 2024",
+    "URGK": "traded on 0% of days in 2024",
+    "UTGA": "traded on 41% of days in 2024",
+    "UTYK": "traded on 31% of days in 2024",
     "UVGT": "only 80 trading days in 2024",
+    "UZALP": "traded on 0% of days in 2024",
+    "UZGF": "traded on 0% of days in 2024",
+    "UZIN": "traded on 0% of days in 2024",
+    "UZML": "traded on 0% of days in 2024",
+    "UZNG": "traded on 0% of days in 2024",
+    "UZPN": "traded on 2% of days in 2024",
+    "XKBK": "traded on 0% of days in 2024",
     "YRFS": "only 0 trading days in 2024"
    }
   },
@@ -298,7 +1185,40 @@
     "QZSM",
     "CBSK",
     "UZMT",
-    "SQBN"
+    "SQBN",
+    "UZTLP",
+    "IPKY",
+    "AGMKP",
+    "ALKB",
+    "KVTS",
+    "UZINP",
+    "ALKBP",
+    "UZMKP",
+    "UZNGP",
+    "HMKBP",
+    "IPTB",
+    "BIOK",
+    "UPOS",
+    "DORI",
+    "UZGFP",
+    "IPTBP",
+    "TRSB",
+    "SQBNP",
+    "UZIR",
+    "BRBNP",
+    "BRBN",
+    "TNBN",
+    "UTGAP",
+    "AGBA",
+    "GRBK",
+    "AGBAP",
+    "UNVB",
+    "BNGP",
+    "MCBA",
+    "UZIRP",
+    "TNBNP",
+    "MCBAP",
+    "UZAL"
    ],
    "liquidity": [
     {
@@ -335,17 +1255,235 @@
      "ticker": "SQBN",
      "medianTurnover": 1010464,
      "active": 1
+    },
+    {
+     "ticker": "UZTLP",
+     "medianTurnover": 959617,
+     "active": 0.99
+    },
+    {
+     "ticker": "IPKY",
+     "medianTurnover": 925466,
+     "active": 1
+    },
+    {
+     "ticker": "AGMKP",
+     "medianTurnover": 894963,
+     "active": 1
+    },
+    {
+     "ticker": "ALKB",
+     "medianTurnover": 858597,
+     "active": 1
+    },
+    {
+     "ticker": "KVTS",
+     "medianTurnover": 772414,
+     "active": 1
+    },
+    {
+     "ticker": "UZINP",
+     "medianTurnover": 730341,
+     "active": 1
+    },
+    {
+     "ticker": "ALKBP",
+     "medianTurnover": 673838,
+     "active": 1
+    },
+    {
+     "ticker": "UZMKP",
+     "medianTurnover": 539064,
+     "active": 0.99
+    },
+    {
+     "ticker": "UZNGP",
+     "medianTurnover": 518753,
+     "active": 1
+    },
+    {
+     "ticker": "HMKBP",
+     "medianTurnover": 395821,
+     "active": 1
+    },
+    {
+     "ticker": "IPTB",
+     "medianTurnover": 370450,
+     "active": 1
+    },
+    {
+     "ticker": "BIOK",
+     "medianTurnover": 336000,
+     "active": 0.84
+    },
+    {
+     "ticker": "UPOS",
+     "medianTurnover": 319666,
+     "active": 0.96
+    },
+    {
+     "ticker": "DORI",
+     "medianTurnover": 302240,
+     "active": 0.96
+    },
+    {
+     "ticker": "UZGFP",
+     "medianTurnover": 239952,
+     "active": 0.99
+    },
+    {
+     "ticker": "IPTBP",
+     "medianTurnover": 230327,
+     "active": 1
+    },
+    {
+     "ticker": "TRSB",
+     "medianTurnover": 208387,
+     "active": 0.92
+    },
+    {
+     "ticker": "SQBNP",
+     "medianTurnover": 156181,
+     "active": 1
+    },
+    {
+     "ticker": "UZIR",
+     "medianTurnover": 148887,
+     "active": 0.9
+    },
+    {
+     "ticker": "BRBNP",
+     "medianTurnover": 139909,
+     "active": 1
+    },
+    {
+     "ticker": "BRBN",
+     "medianTurnover": 133146,
+     "active": 0.99
+    },
+    {
+     "ticker": "TNBN",
+     "medianTurnover": 122547,
+     "active": 0.99
+    },
+    {
+     "ticker": "UTGAP",
+     "medianTurnover": 98204,
+     "active": 0.86
+    },
+    {
+     "ticker": "AGBA",
+     "medianTurnover": 97604,
+     "active": 1
+    },
+    {
+     "ticker": "GRBK",
+     "medianTurnover": 80619,
+     "active": 0.96
+    },
+    {
+     "ticker": "AGBAP",
+     "medianTurnover": 79954,
+     "active": 0.81
+    },
+    {
+     "ticker": "UNVB",
+     "medianTurnover": 73014,
+     "active": 0.73
+    },
+    {
+     "ticker": "BNGP",
+     "medianTurnover": 49676,
+     "active": 0.88
+    },
+    {
+     "ticker": "MCBA",
+     "medianTurnover": 49359,
+     "active": 0.96
+    },
+    {
+     "ticker": "UZIRP",
+     "medianTurnover": 33920,
+     "active": 0.74
+    },
+    {
+     "ticker": "TNBNP",
+     "medianTurnover": 14266,
+     "active": 0.7
+    },
+    {
+     "ticker": "MCBAP",
+     "medianTurnover": 7098,
+     "active": 0.54
+    },
+    {
+     "ticker": "UZAL",
+     "medianTurnover": 1744,
+     "active": 0.52
     }
    ],
    "excluded": {
+    "AGMK": "traded on 0% of days in 2025",
+    "ALSMP": "traded on 10% of days in 2025",
+    "ALSM": "traded on 42% of days in 2025",
+    "ARST": "traded on 0% of days in 2025",
+    "BECMP": "traded on 28% of days in 2025",
+    "BECM": "no issuer id in uzse_issuers.json (dividends unknown)",
+    "BNGPP": "no issuer id in uzse_issuers.json (dividends unknown)",
+    "BTRL": "no issuer id in uzse_issuers.json (dividends unknown)",
     "DRBK": "only 0 trading days in 2025",
+    "EQQU": "traded on 15% of days in 2025",
+    "FRAZP": "traded on 6% of days in 2025",
+    "FRAZ": "traded on 0% of days in 2025",
+    "GRBKP": "traded on 0% of days in 2025",
     "INFBP": "only 138 trading days in 2025",
-    "INFB": "only 160 trading days in 2025",
+    "INFB": "traded on 0% of days in 2025",
+    "INSN": "traded on 0% of days in 2025",
+    "IPKYP": "traded on 0% of days in 2025",
+    "IQMK": "traded on 0% of days in 2025",
+    "JASM": "traded on 7% of days in 2025",
+    "KASUP": "traded on 12% of days in 2025",
+    "KASU": "split-like close jump inside 2026 (exchange series is not adjusted)",
     "KFSKP": "only 0 trading days in 2025",
     "KFSK": "only 0 trading days in 2025",
+    "KPBA": "traded on 0% of days in 2025",
+    "KSCMP": "traded on 2% of days in 2025",
+    "KSCM": "traded on 38% of days in 2025",
+    "METQ": "traded on 10% of days in 2025",
+    "MXUS": "traded on 0% of days in 2025",
+    "NGQS": "traded on 11% of days in 2025",
     "OALB": "only 0 trading days in 2025",
+    "OHDN": "traded on 42% of days in 2025",
+    "ORFIP": "traded on 0% of days in 2025",
+    "ORFI": "traded on 0% of days in 2025",
+    "ORGS": "traded on 0% of days in 2025",
+    "PLSTP": "traded on 4% of days in 2025",
+    "PLST": "traded on 14% of days in 2025",
+    "QATTP": "traded on 0% of days in 2025",
+    "QATT": "no issuer id in uzse_issuers.json (dividends unknown)",
+    "SOLA": "traded on 0% of days in 2025",
     "TGMQ": "only 0 trading days in 2025",
-    "UZTL": "split-like close jump inside 2026 (exchange series is not adjusted)"
+    "TGPG": "traded on 5% of days in 2025",
+    "TMYS": "no issuer id in uzse_issuers.json (dividends unknown)",
+    "TRSBP": "traded on 1% of days in 2025",
+    "UPATP": "traded on 0% of days in 2025",
+    "UPAT": "traded on 0% of days in 2025",
+    "UPOSP": "traded on 48% of days in 2025",
+    "UQEQ": "traded on 15% of days in 2025",
+    "URGKP": "traded on 0% of days in 2025",
+    "URGK": "traded on 0% of days in 2025",
+    "UTGA": "traded on 35% of days in 2025",
+    "UTYK": "traded on 38% of days in 2025",
+    "UVGT": "traded on 29% of days in 2025",
+    "UZALP": "traded on 0% of days in 2025",
+    "UZGF": "traded on 0% of days in 2025",
+    "UZIN": "traded on 0% of days in 2025",
+    "UZML": "traded on 17% of days in 2025",
+    "UZNG": "traded on 0% of days in 2025",
+    "UZPN": "traded on 0% of days in 2025",
+    "UZTL": "split-like close jump inside 2026 (exchange series is not adjusted)",
+    "XKBK": "traded on 0% of days in 2025",
+    "YRFS": "no issuer id in uzse_issuers.json (dividends unknown)"
    }
   }
  }

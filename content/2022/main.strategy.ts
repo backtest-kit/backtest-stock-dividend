@@ -2,43 +2,52 @@ import {
   addLauncherSchema,
   addStrategySchema,
   commitDividend,
+  getCandles,
   listenActivePing,
-  listenDoneBacktest,
   Position,
-  setConfig,
 } from "backtest-kit";
 
 import { UzSEDividends } from "./classes/UzSEDividends";
 
-setConfig({
-  CC_MAX_STOPLOSS_DISTANCE_PERCENT: 100, // иначе валидатор не пропустит стоп -50%
-  // Свечи дневные с биржи, минутки семплированы и внутри дня одинаковы: позиции оцениваются
-  // раз в сутки вместо поминутного цикла. Каденция тиков стратегии остаётся по интервалу фрейма.
-  CC_BACKTEST_STEP_MINUTES: 24 * 60,
-  // Издержки UzSE: комиссия брокера и биржи около 0.15% за сделку, спред ликвидных бумаг 1-3%,
-  // половина спреда ложится на каждую сторону. Движок применяет оба числа на входе и на выходе.
-  CC_PERCENT_FEE: 0.15,
-  CC_PERCENT_SLIPPAGE: 0.5,
-  // Валидатор требует, чтобы минимальная дистанция тейка покрывала круг издержек (1.3% при этих числах)
-  CC_MIN_TAKEPROFIT_DISTANCE_PERCENT: 2,
-});
+// Параметры движка (издержки, дневной шаг, дистанции стопа и тейка) общие для всех годов и заданы в config/loader.config.ts
 
-// Депозит в сумах делится поровну между бумагами корзины года; все суммы стратегии и отчётов в сумах
+// Стратегия: захват дивиденда вокруг собрания акционеров. На UzSE цена после решения о дивиденде
+// не падает на его размер: при доходности 8-15% к цене чистое движение цены за окно около -3%.
+// Вход за ENTRY_DAYS до даты решения, выход через EXIT_DAYS после неё, дивиденд начисляется
+// на дату решения. Остальное время капитал свободен (ставка депозита учитывается в сводке).
 const DEPOSIT_UZS = 10_000_000;
+// Доля депозита на одно событие и потолок по ликвидности: не больше LIQUIDITY_SHARE медианного
+// дневного оборота за TURNOVER_DAYS дней, набранных за ENTRY_DAYS дней входа
+const SLOT_UZS = DEPOSIT_UZS / 3;
+const LIQUIDITY_SHARE = 0.25;
+const TURNOVER_DAYS = 20;
+const MIN_POSITION_UZS = 200_000;
 
-// Уровни: стоп -50% это ограничитель просадки на годовом удержании (дневные минимумы), тейк технический
+const ENTRY_DAYS = 10;
+const EXIT_DAYS = 5;
+const MIN_DIVIDEND_YIELD = 0.08;
+
+// Уровни технические: за три недели -50% на споте маловероятен, штатный выход по времени
 const STOP_LOSS_PERCENT = 50;
 const TAKE_PROFIT_PERCENT = 2000;
 
+const DAY_MS = 86_400_000;
+
 // BASKET:BEGIN
-// 2022: акции UzSE с медианным дневным оборотом за 2021 от 1 млн сумов, сделки не реже 90% дней,
-// история от начала 2021, без дроблений внутри года; топ по обороту. Сгенерировано
-// scripts/common/generate_months.mjs из scripts/common/universe.json.
+// 2022: акции UzSE с эмитентом в таблице дивидендов, историей от начала 2021, сделками не реже
+// 50% дней 2021 года и без дроблений внутри года. Сгенерировано scripts/common/generate_months.mjs
+// из scripts/common/universe.json.
 const BASKET = [
   "URTS",
   "QZSM",
+  "KSCM",
   "KVTS",
   "HMKB",
+  "SQBN",
+  "IPTB",
+  "AGMKP",
+  "CBSK",
+  "IPTBP",
 ];
 // BASKET:END
 
@@ -47,36 +56,55 @@ const BASKET = [
 const ISSUER_IDS: Record<string, number> = {
   URTS: 1,
   QZSM: 17,
+  KSCM: 13,
   KVTS: 21,
   HMKB: 5,
+  SQBN: 2,
+  IPTB: 4,
+  AGMKP: 12,
+  CBSK: 19,
+  IPTBP: 4,
 };
 // ISSUERS:END
 
-const PER_SYMBOL_UZS = DEPOSIT_UZS / BASKET.length;
-
-// Позиция живёт до конца календарного года: вход на первом тике, выход по времени в 23:59
-// 31 декабря. Срок считается от момента входа, поэтому и перезаход после стопа закрывается
-// в ту же минуту; на конец фрейма ядра не полагаемся.
-const yearEndOf = (when: Date): number => Date.UTC(when.getUTCFullYear() + 1, 0, 1) - 60_000;
-const holdMinutesOf = (when: Date): number => Math.floor((yearEndOf(when) - when.getTime()) / 60_000);
-// Короче суток до конца года не входим: круг издержек за один день не окупается
-const MIN_HOLD_MINUTES = 24 * 60;
+const kindOf = (symbol: string) => (symbol.endsWith("P") ? "preferred" : "common");
 
 // Начисленные дивиденды: ключ позиция + финансовый год, чтобы решение не начислилось дважды
 const credited = new Set<string>();
 
 addStrategySchema({
-  strategyName: "uzse_dividend_fund",
+  strategyName: "uzse_dividend_capture",
   interval: "1h",
   getSignal: async (symbol, when, currentPrice) => {
 
-    const holdMinutes = holdMinutesOf(when);
-    if (holdMinutes < MIN_HOLD_MINUTES) {
+    // Ближайшее собрание в окне входа; решение, до которого больше ENTRY_DAYS, ещё не торгуется
+    const [upcoming] = await UzSEDividends.getUpcoming(ISSUER_IDS[symbol], kindOf(symbol), when, ENTRY_DAYS);
+    if (!upcoming) {
+      return null;
+    }
+    const dividendYield = upcoming.perShare / currentPrice;
+    if (dividendYield < MIN_DIVIDEND_YIELD) {
+      return null;
+    }
+
+    // Размер по ликвидности: медианный дневной оборот за TURNOVER_DAYS закрытых дней
+    const daily = await getCandles(symbol, "1d", TURNOVER_DAYS);
+    const turnovers = daily.map((candle) => candle.close * candle.volume).sort((a, b) => a - b);
+    const medianTurnover = turnovers.length ? turnovers[Math.floor(turnovers.length / 2)] : 0;
+    const cost = Math.min(SLOT_UZS, LIQUIDITY_SHARE * medianTurnover * ENTRY_DAYS);
+    if (cost < MIN_POSITION_UZS) {
+      return null;
+    }
+
+    // Выход в 23:59 дня decisionDate + EXIT_DAYS
+    const exitAt = upcoming.decisionDate + EXIT_DAYS * DAY_MS + DAY_MS - 60_000;
+    const holdMinutes = Math.floor((exitAt - when.getTime()) / 60_000);
+    if (holdMinutes < 24 * 60) {
       return null;
     }
 
     return {
-      id: `${symbol.toLowerCase()}-${when.toISOString().slice(0, 10)}`,
+      id: `${symbol.toLowerCase()}-fy${upcoming.fiscalYear}-${when.toISOString().slice(0, 10)}`,
       symbol,
       ...Position.bracket({
         position: "long",
@@ -84,15 +112,20 @@ addStrategySchema({
         percentStopLoss: STOP_LOSS_PERCENT,
         percentTakeProfit: TAKE_PROFIT_PERCENT,
       }),
-      cost: Math.round(PER_SYMBOL_UZS),
+      cost: Math.round(cost),
       minuteEstimatedTime: holdMinutes,
-      payload: { weight: 1 / BASKET.length, basketSize: BASKET.length, issuerId: ISSUER_IDS[symbol] },
-      note: `${symbol} cost=${PER_SYMBOL_UZS.toFixed(0)} UZS hold=${Math.round(holdMinutes / 1440)}d`,
+      payload: {
+        fiscalYear: upcoming.fiscalYear,
+        decisionDate: new Date(upcoming.decisionDate).toISOString().slice(0, 10),
+        perShare: upcoming.perShare,
+        dividendYield,
+        medianTurnover,
+        issuerId: ISSUER_IDS[symbol],
+      },
+      note: `${symbol} FY${upcoming.fiscalYear} yield=${(dividendYield * 100).toFixed(1)}% cost=${cost.toFixed(0)} UZS decision=${new Date(upcoming.decisionDate).toISOString().slice(0, 10)}`,
     };
   },
 });
-
-declare var kill: any;
 
 // Дивиденд начисляется на дату решения собрания, если оно принято за время жизни позиции.
 // Движок сам календаря не ведёт: когда и сколько - решает стратегия, он лишь складывает
@@ -101,9 +134,8 @@ declare var kill: any;
 // timestamp события это логическое время движка, не часы машины.
 listenActivePing(async ({ symbol, data, timestamp }) => {
   const when = new Date(timestamp);
-  const kind = symbol.endsWith("P") ? "preferred" : "common";
   const shares = data.cost / data.priceOpen;
-  for (const dividend of await UzSEDividends.getDividends(ISSUER_IDS[symbol], kind, when)) {
+  for (const dividend of await UzSEDividends.getDividends(ISSUER_IDS[symbol], kindOf(symbol), when)) {
     if (dividend.decisionDate < data.pendingAt) {
       continue;
     }
@@ -120,19 +152,9 @@ listenActivePing(async ({ symbol, data, timestamp }) => {
   }
 });
 
-// listenDoneBacktest срабатывает на каждый символ списка: процесс завершаем после последнего
-let doneCount = 0;
-
-listenDoneBacktest(() => {
-  doneCount += 1;
-  if (doneCount >= BASKET.length) {
-    kill();
-  }
-});
-
 addLauncherSchema({
   launcherName: "main_launcher",
   backtest: true,
   symbolList: BASKET,
   cache: false,
-})
+});

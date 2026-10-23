@@ -1,6 +1,6 @@
-// Собирает корзины годовых папок content/<yyyy>/ из ликвидности акций UzSE: для года Y берутся
-// акции с достаточным оборотом в году Y-1 (известен до начала года), топ-N по медианному дневному
-// обороту. Источник - страницы бумаг uzse.uz (/isu_infos/STK?isu_cd=...&begin_date=..&end_date=..),
+// Собирает корзины годовых папок content/<yyyy>/: для года Y берутся акции UzSE с эмитентом в таблице
+// дивидендов, которые в году Y-1 (известен до начала года) торговались достаточно регулярно. Размер
+// позиции стратегия считает сама по обороту, поэтому порог здесь про регулярность сделок, не про объём. Источник - страницы бумаг uzse.uz (/isu_infos/STK?isu_cd=...&begin_date=..&end_date=..),
 // где дневной ряд лежит прямо в HTML; кэш в tmp/uzse/pages/, --refresh перекачивает.
 //
 // Запуск из корня репо: node scripts/common/build_universe.mjs [--refresh] [--top 10]
@@ -15,12 +15,12 @@ const ISSUERS = JSON.parse(readFileSync(join(ROOT, "scripts/common/uzse_issuers.
 const OUT = join(ROOT, "scripts/common/universe.json");
 const arg = (name, fallback) => { const i = process.argv.indexOf(`--${name}`); return i >= 0 && process.argv[i + 1] ? process.argv[i + 1] : fallback; };
 const REFRESH = process.argv.includes("--refresh");
-const TOP = Number(arg("top", 10));
+const TOP = Number(arg("top", 100));
 
-/** Пороги ликвидности по году Y-1: медианный дневной оборот в сумах и доля дней со сделками */
-const MIN_MEDIAN_TURNOVER_UZS = 1_000_000;
-const MIN_ACTIVE_SHARE = 0.9;
-const MIN_TRADING_DAYS = 200;
+/** Пороги по году Y-1: медианный дневной оборот в сумах (0 = не фильтровать), доля дней со сделками, число торговых дней */
+const MIN_MEDIAN_TURNOVER_UZS = 0;
+const MIN_ACTIVE_SHARE = 0.5;
+const MIN_TRADING_DAYS = 150;
 /** Минимальный размер корзины: меньше - год не торгуется */
 const MIN_BASKET = 3;
 /** Скачок закрытия между соседними торговыми днями со сделками: дробление или консолидация, ряд биржи не скорректирован */
@@ -89,7 +89,7 @@ for (let y = firstYear; y <= lastYear; y++) {
     if (!rows.length || yearOf(rows[0].t) >= y - 1) { continue; } // нужна история с начала года Y-1
     const s = statsOf(prev);
     if (s.days < MIN_TRADING_DAYS) { excluded[ticker] = `only ${s.days} trading days in ${y - 1}`; continue; }
-    if (s.median < MIN_MEDIAN_TURNOVER_UZS) { continue; }
+    if (MIN_MEDIAN_TURNOVER_UZS && s.median < MIN_MEDIAN_TURNOVER_UZS) { continue; }
     if (s.active < MIN_ACTIVE_SHARE) { excluded[ticker] = `traded on ${(s.active * 100).toFixed(0)}% of days in ${y - 1}`; continue; }
     if (!(ticker in ISSUERS)) { excluded[ticker] = "no issuer id in uzse_issuers.json (dividends unknown)"; continue; }
     const splits = splitYears(rows);

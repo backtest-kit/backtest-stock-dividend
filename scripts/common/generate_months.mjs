@@ -46,9 +46,9 @@ for (const [year, { rankedBy, basket }] of Object.entries(universe.years)) {
 
   const basketBlock = [
     "// BASKET:BEGIN",
-    `// ${year}: акции UzSE с медианным дневным оборотом за ${rankedBy} от ${MIN_MEDIAN_TURNOVER_UZS / 1e6} млн сумов, сделки не реже ${MIN_ACTIVE_SHARE * 100}% дней,`,
-    `// история от начала ${rankedBy}, без дроблений внутри года; топ по обороту. Сгенерировано`,
-    "// scripts/common/generate_months.mjs из scripts/common/universe.json.",
+    `// ${year}: акции UzSE с эмитентом в таблице дивидендов, историей от начала ${rankedBy}, сделками не реже`,
+    `// ${MIN_ACTIVE_SHARE * 100}% дней ${rankedBy} года и без дроблений внутри года. Сгенерировано scripts/common/generate_months.mjs`,
+    "// из scripts/common/universe.json.",
     "const BASKET = [",
     ...basket.map((ticker) => `  "${ticker}",`),
     "];",
@@ -87,21 +87,21 @@ for (const [year, { rankedBy, basket }] of Object.entries(universe.years)) {
 const cli = "./node_modules/@backtest-kit/cli/build/index.mjs";
 mkdirSync(join(ROOT, "scripts/linux"), { recursive: true });
 mkdirSync(join(ROOT, "scripts/win"), { recursive: true });
-// Код выхода года не проверяется: стратегия завершает процесс через kill() (SIGKILL, код 137),
-// это штатный финал, а не ошибка. Упавший год виден по отсутствию closed в его отчёте.
+// Все хранилища в config/setup.config.ts заглушены (useDummy), процесс года завершается сам,
+// когда последний символ доходит до конца фрейма. Упавший год виден по отсутствию closed в его отчёте.
 writeFileSync(join(ROOT, "scripts/linux/run_strategy.sh"), [
   "#!/bin/bash",
-  "# Прогон фонда акций UzSE по всем годам, один процесс CLI на год. Нужны поднятые docker/mongo и docker/redis.",
+  "# Прогон фонда акций UzSE по всем годам, один процесс CLI на год.",
   "# Отчёты: content/<год>/dump/report/backtest.jsonl. Запуск из корня репо: bash scripts/linux/run_strategy.sh",
-  "# Каждый год завершается kill() со статусом 137 - это штатно, прогон продолжается; сводка: node scripts/common/summarize_reports.mjs",
+  "# Сводка после прогона: node scripts/common/summarize_reports.mjs",
   ...generated.map((year) => `node ${cli} --backtest --entry ./content/${year}/main.strategy.ts`),
   "",
 ].join("\n"));
 writeFileSync(join(ROOT, "scripts/win/run_strategy.bat"), [
   "@echo off",
-  "REM Прогон фонда акций UzSE по всем годам, один процесс CLI на год. Нужны поднятые docker\\mongo и docker\\redis.",
+  "REM Прогон фонда акций UzSE по всем годам, один процесс CLI на год.",
   "REM Отчёты: content\\<год>\\dump\\report\\backtest.jsonl. Запуск из корня репо: scripts\\win\\run_strategy.bat",
-  "REM Каждый год завершается kill() с ненулевым кодом - это штатно, прогон продолжается; сводка: node scripts\\common\\summarize_reports.mjs",
+  "REM Сводка после прогона: node scripts\\common\\summarize_reports.mjs",
   ...generated.map((year) => `node ${cli.replace(/\//g, "\\")} --backtest --entry .\\content\\${year}\\main.strategy.ts`),
   "",
 ].join("\r\n"));

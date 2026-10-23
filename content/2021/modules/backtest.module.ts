@@ -2,7 +2,6 @@ import {
   addExchangeSchema,
   addFrameSchema,
   getCandlesSampled,
-  PersistCandleAdapter,
 } from "backtest-kit";
 
 import { UzSE } from "../classes/UzSE";
@@ -16,9 +15,6 @@ addExchangeSchema({
   getCandles: async (symbol, interval, since, limit) =>
     await getCandlesSampled(UzSE.getCandles, { symbol, interval, since, limit }),
 });
-
-// Семплированные свечи генерируются из памяти: в Mongo их не пишем и не читаем
-PersistCandleAdapter.useDummy();
 
 addFrameSchema({
   frameName: "2021_frame",

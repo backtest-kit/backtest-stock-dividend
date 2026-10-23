@@ -1,5 +1,3 @@
-import { setup } from "@backtest-kit/mongo";
-
 import {
   Markdown,
   StorageLive,
@@ -17,6 +15,27 @@ import {
   SessionBacktest,
   Log,
 } from "backtest-kit";
+
+import {
+  PersistCandleAdapter,
+  PersistSignalAdapter,
+  PersistRiskAdapter,
+  PersistScheduleAdapter,
+  PersistStrategyAdapter,
+  PersistPartialAdapter,
+  PersistBreakevenAdapter,
+  PersistStorageAdapter,
+  PersistNotificationAdapter,
+  PersistLogAdapter,
+  PersistMeasureAdapter,
+  PersistIntervalAdapter,
+  PersistMemoryAdapter,
+  PersistRecentAdapter,
+  PersistStateAdapter,
+  PersistDictionaryAdapter,
+  PersistSessionAdapter,
+} from "backtest-kit";
+
 
 {
   Dump.useMarkdown();
@@ -62,4 +81,22 @@ import {
   Log.useJsonl();
 }
 
-setup();
+{
+  PersistCandleAdapter.useDummy();
+  PersistSignalAdapter.useDummy();
+  PersistRiskAdapter.useDummy();
+  PersistScheduleAdapter.useDummy();
+  PersistStrategyAdapter.useDummy();
+  PersistPartialAdapter.useDummy();
+  PersistBreakevenAdapter.useDummy();
+  PersistStorageAdapter.useDummy();
+  PersistNotificationAdapter.useDummy();
+  PersistLogAdapter.useDummy();
+  PersistMeasureAdapter.useDummy();
+  PersistIntervalAdapter.useDummy();
+  PersistMemoryAdapter.useDummy();
+  PersistRecentAdapter.useDummy();
+  PersistStateAdapter.useDummy();
+  PersistDictionaryAdapter.useDummy();
+  PersistSessionAdapter.useDummy();
+}

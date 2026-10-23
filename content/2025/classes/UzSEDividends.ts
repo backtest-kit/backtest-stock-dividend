@@ -121,6 +121,31 @@ export class UzSEDividendsUtils {
     return out.sort((a, b) => a.decisionDate - b.decisionDate);
   };
 
+  /**
+   * Решения с датой в окне (when, when + horizonDays]: предстоящие собрания. Допущение бектеста:
+   * дата собрания и размер дивиденда считаются известными за horizonDays до решения. В реальности
+   * уведомление о собрании с проектом дивиденда публикуется не позднее чем за 21 день, итоговая
+   * сумма может отличаться от проекта.
+   */
+  public getUpcoming = async (issuerId: number, kind: TShareKind, when: Date, horizonDays: number): Promise<IDividend[]> => {
+    const issuer = (await this.fetchAll()).get(issuerId);
+    if (!issuer) {
+      throw new Error(`UzSEDividends: unknown issuer id ${issuerId}`);
+    }
+    const from = when.getTime();
+    const to = from + horizonDays * 86_400_000;
+    const out: IDividend[] = [];
+    for (const row of issuer.years) {
+      const perShare = kind === "preferred" ? row.dp : row.dc;
+      const decisionDate = parseIsoDate(row.dd);
+      if (!perShare || perShare <= 0 || decisionDate === null || decisionDate <= from || decisionDate > to) {
+        continue;
+      }
+      out.push({ fiscalYear: row.y, decisionDate, perShare, payoutStart: parseIsoDate(row.ps), payoutEnd: parseIsoDate(row.pe) });
+    }
+    return out.sort((a, b) => a.decisionDate - b.decisionDate);
+  };
+
   /** Название эмитента по id, для отчётов */
   public getIssuerName = async (issuerId: number): Promise<string | null> =>
     (await this.fetchAll()).get(issuerId)?.name ?? null;
