@@ -19,6 +19,9 @@ addExchangeSchema({
 addFrameSchema({
   frameName: "2020_frame",
   interval: "1h",
+  // Свечи дневные с биржи, минутки семплированы и внутри дня одинаковы: позиция оценивается
+  // раз в сутки вместо поминутного цикла. Каденция тиков стратегии остаётся часовой.
+  watchInterval: "1d",
   startDate: new Date("2020-01-01T00:00:00Z"),
   endDate: new Date("2020-12-31T23:59:59Z"),
   note: "Year 2020",
